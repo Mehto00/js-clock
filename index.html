@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Clock</title>
+   <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   <div class="contentWrapper">
+      <div class="content">
+         <h1>Today is:</h1>
+         <h2 id="currentDay">the best day</h2>  
+          <ul>
+            <li class="between"></li>
+            <li class="timeUnits" id="hours">00</li>
+            <li class="between">:</li>
+            <li class="timeUnits" id="minutes">00</li>
+            <li class="between">:</li>
+            <li class="timeUnits" id="seconds">00</li>
+            <li class="between"></li>
+         </ul>
+      </div>
+   </div>
+
+<script type="text/javascript">
+ const intervalID = window.setInterval(myCallback, 1000);
+ let date;
+ let list;
+
+ function myCallback() {
+   date = new Date(Date.now());
+   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+   document.querySelector("#currentDay").innerHTML =  date.toLocaleString('en-GB', options)
+
+   let seconds = date.getSeconds();
+   let minutes = date.getMinutes();
+   let hours = date.getHours();
+
+   const addZeroIfOnlyOneChar = (timeValue) => {
+      if (timeValue.toString().length === 1) {
+         timeValue = "0" + timeValue.toString().charAt(0)
+      }
+      return timeValue
+   }
+
+   document.querySelector("#hours").innerHTML = addZeroIfOnlyOneChar(hours);
+   document.querySelector("#minutes").innerHTML = addZeroIfOnlyOneChar(minutes);
+   document.querySelector("#seconds").innerHTML = addZeroIfOnlyOneChar(seconds);
+}
+</script>
+</body>
+</html>
