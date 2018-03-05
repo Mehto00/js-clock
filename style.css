@@ -1,6 +1,9 @@
 body {
       background: #E6E6E6;
       font-family: 'Orbitron', sans-serif;
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
 }
    
 h1, h2 {
@@ -11,9 +14,9 @@ h1, h2 {
 
 ul {
    display: flex;
-   margin-top: 5px;
+   margin: 5px 0 0 10px;
    padding: 0;
-   width: 100%;
+   width: 200px;
 }
 
 li {
@@ -32,13 +35,39 @@ li:nth-child(1) {
 
 .contentWrapper {
    display: flex;
+   flex: 9;
    flex-direction: row;
    justify-content: center;
-   margin: 15% auto;
+   margin: 0 auto;
+   height: 50vh;
 }
 .content {
    display: flex;
    flex-direction: column;
+   padding: 25% 0;
+}
+
+/* === Footer === */
+footer {
+   display: flex;
+   flex: 1;
+   align-self: center;
+   flex-direction: row-reverse;
+   height: 40px;
+}
+
+footer img {
+   margin-right: 15px;
+   height: 90%;
+}
+
+footer a {
+   color:#fff;
+   margin: 13px 10px 0px 0px;
+}
+
+footer a:visited{
+   color:#999999;
 }
 
 @media screen and (min-width: 500px) {
@@ -49,8 +78,10 @@ li:nth-child(1) {
    h2 {
       font-size: 2.2em;
    }
+
    ul {
       margin-top: 25px;
+      width: 460px;
    }
 
    li {
@@ -63,6 +94,10 @@ li:nth-child(1) {
    }
 
    .content h1, .content h2 {
-      margin-left: 80px;
+      margin-left: 75px;
+   }
+
+   footer {
+   align-self: flex-end;
    }
 }
